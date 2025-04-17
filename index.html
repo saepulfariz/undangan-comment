@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Undangan Comment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container mt-3">
+        <div class="row mb-2">
+            <div class="col text-center">
+                <div class="card shadow">
+                    <div class="card-header">
+                        <h1>Undangan Comment</h1>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6 mb-2">
+                <div class="card shadow">
+                    <div class="card-header">
+                        Gera Comment, kalau engga di tampiling
+                    </div>
+                    <div class="card-body">
+                        <div class="alert alert-success alert-dismissible fade show d-none my-alert" role="alert">
+                            <strong>Terima Kasih!</strong> Pesan anda telah kami terima.
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                        <form action="" method="post" name="form-comment">
+                            <div class="mb-2">
+                                <label for="name">Name</label>
+                                <input type="text" name="name" id="name" class="form-control">
+                            </div>
+                            <div class="mb-2">
+                                <label for="comment">Comment</label>
+                                <textarea name="comment" id="comment" class="form-control"></textarea>
+                            </div>
+
+                            <button type="submit" id="button" class="btn btn-primary btn-kirim">Submit</button>
+
+                            <button class="btn btn-danger btn-loading d-none" type="button" disabled>
+                                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
+                                Loading...
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mb-2">
+                <div class="card">
+                    <div class="card-header">
+                        Result
+                    </div>
+                    <div class="card-body">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th>No</th>
+                                    <th>Name</th>
+                                    <th>Comment</th>
+                                    <th>Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="body-result"></tbody>
+                        </table>
+
+                        Source : <a
+                            href="https://docs.google.com/spreadsheets/d/1S88iMRbxI9OtUUCWUgORsffaQ7ejyrVaFJ_vZL1qIb4/edit?gid=0#gid=0"
+                            target="_blank">Data Excel</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col">
+                <div class="card shadow">
+                    <div class="card-footer">
+                        <h5 class="text-center">Created By Kang Rebahan ^_^ &copy 2025</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-k6d4wzSIapyDyv1kpU366/PK5hCdSbCRGRCMv+eplOQJWyd1fbcAu9OCUj5zNLiq" crossorigin="anonymous">
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"
+        integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+
+
+</body>
+
+</html>
