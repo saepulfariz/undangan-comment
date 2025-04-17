@@ -129,6 +129,36 @@
         })
 
         // https://github.com/jamiewilson/form-to-google-sheets
+
+        function getData() {
+            $.ajax({
+                url: 'https://script.googleusercontent.com/macros/echo?user_content_key=AehSKLiR-_i_VwUJcK3WVoPINpUUVAifU8mlUNAhHjA-_bvHN_DrHGiclQvoJ8yroKSb_MqUhSTfiAWKWavEtMUFGyJAUInuuoU0NlyhnuS1hEJZZXWl3k_OuajGJQlTYgBtLi4CScZpaOgneMvUEJlguOMT3wslrT538Oll0xGsgy9tMMQANKJTRgVDxrr7dQZwa3i-ivqpfWKpHP7HSxT6KFchXLrJPXTT_-D3K4gSQJ4NRhphMODsPQu7HiJLOA_VGmcdbbqrhfyCVYsa0TjtpBYmopphimv_Y3FOlwyQ&lib=M_0vFpnptRGlMXslYsaIQQ2D_c94kK0rG',
+                method: 'GET', // POST 
+                data: {},
+                dataType: 'json', // json
+                success: function (data) {
+                    var tbody = '';
+                    for (var i = 0; i < data.data.length; i++) {
+                        var element = data.data[i];
+                        var no = i + 1;
+                        tbody += `<tr>
+                            <td>` + (no) + `</td>
+                            <td>` + element.name + `</td>
+                            <td>` + element.comment + `</td>
+                            <td>` + element.timestamp + `</td>
+                        </tr>`;
+                    }
+
+                    $('#body-result').html(tbody)
+                },
+                beforeSend: function () {
+                    $('#body-result').html('<h3 class="mt-3 text-danger">Cerita nya loading..</h3>')
+                },
+                complete: function () {},
+            });
+        }
+
+        getData()
     </script>
 </body>
 
