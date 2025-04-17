@@ -98,6 +98,25 @@
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
     <script>
+        function timeAgo(timestamp) {
+            const now = new Date();
+            const time = new Date(timestamp);
+            const diffMs = now - time; // selisih dalam milidetik
+
+            const diffMinutes = Math.floor(diffMs / (1000 * 60));
+            const hours = Math.floor(diffMinutes / 60);
+            const minutes = diffMinutes % 60;
+
+            let result = '';
+            if (hours > 0) {
+                result += `${hours} jam`;
+            }
+            if (minutes > 0) {
+                result += (hours > 0 ? ', ' : '') + `${minutes} menit`;
+            }
+            return result + ' lalu';
+        }
+
         const scriptURL =
             'https://script.google.com/macros/s/AKfycbwyXfR0KbcwmjTGQXar370T_oIXw7DqJP9bsnOPzrkd6BGi88EJxqhryOyPZ4lDC5v6lQ/exec'
         const form = document.forms['form-comment'];
@@ -145,7 +164,7 @@
                             <td>` + (no) + `</td>
                             <td>` + element.name + `</td>
                             <td>` + element.comment + `</td>
-                            <td>` + element.timestamp + `</td>
+                            <td>` + timeAgo(element.timestamp) + `</td>
                         </tr>`;
                     }
 
