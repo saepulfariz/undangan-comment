@@ -97,7 +97,39 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"
         integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
 
+    <script>
+        const scriptURL =
+            'https://script.google.com/macros/s/AKfycbwyXfR0KbcwmjTGQXar370T_oIXw7DqJP9bsnOPzrkd6BGi88EJxqhryOyPZ4lDC5v6lQ/exec'
+        const form = document.forms['form-comment'];
 
+        const btnKirim = document.querySelector('.btn-kirim');
+        const btnLoading = document.querySelector('.btn-loading');
+        const myAlert = document.querySelector('.my-alert');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            // ketika tombol submit di klik
+            // tampilkan tombol loading, hilangkan tombol kirim
+            btnLoading.classList.toggle('d-none');
+            btnKirim.classList.toggle('d-none');
+            // kalau ada class d-none maka hilangkan, kalau gak ada maka tambahkan
+            fetch(scriptURL, {
+                    method: 'POST',
+                    body: new FormData(form)
+                })
+                .then(response => {
+                    // tampilkan tombol kirim,hilangkan tombol loading
+                    console.log('Success!', response);
+                    btnLoading.classList.toggle('d-none');
+                    btnKirim.classList.toggle('d-none');
+                    myAlert.classList.toggle('d-none');
+                    form.reset();
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+
+        // https://github.com/jamiewilson/form-to-google-sheets
+    </script>
 </body>
 
 </html>
